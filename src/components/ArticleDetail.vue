@@ -58,7 +58,7 @@ export default {
 
       this.$ajax({
         method: 'post',
-        url: 'http://10.161.10.144:8080/blog/getArticle',
+        url: '/api/blog/getArticle',
         data: params
       }).then((response) => {
         this.article = response.data.data.article

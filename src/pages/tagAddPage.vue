@@ -22,7 +22,7 @@ export default {
       let self = this
       this.$ajax({
         method: 'post',
-        url: 'http://10.161.10.144:8080/blog/tag/addTag',
+        url: '/api/blog/tag/addTag',
         data: params
       }).then(function (response) {
         if (response.data.code === 0) {

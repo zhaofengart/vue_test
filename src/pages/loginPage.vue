@@ -28,7 +28,7 @@ export default {
       let self = this
       this.$ajax({
         method: 'post',
-        url: 'http://10.161.10.144:8080/blog/user/login',
+        url: '/api/blog/user/login',
         data: params
       }).then(function (response) {
         console.log(response.data.code)

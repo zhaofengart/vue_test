@@ -46,17 +46,17 @@ export default {
       if (this.categoryId != null) {
         let params = new URLSearchParams()
         params.append('categoryId', this.categoryId)
-        let url = 'http://10.161.10.144:8080/blog/category/'
+        let url = '/api/blog/category/'
 
         this.getArticle(url, params)
       } else if (this.tagId != null) {
         let params = new URLSearchParams()
         params.append('tagId', this.tagId)
-        let url = 'http://10.161.10.144:8080/blog/tag/'
+        let url = '/api/blog/tag/'
 
         this.getArticle(url, params)
       } else {
-        let url = 'http://10.161.10.144:8080/blog/'
+        let url = '/api/blog/'
 
         this.getArticle(url, null)
       }
@@ -87,7 +87,7 @@ export default {
 
       this.$ajax({
         method: 'post',
-        url: 'http://10.161.10.144:8080/blog/getTotalNumOfArticle',
+        url: '/api/blog/getTotalNumOfArticle',
         data: params
       }).then(response => {
         if (response.data.code === 0) {
@@ -105,11 +105,11 @@ export default {
       if (this.categoryId) {
         params.append('categoryId', this.categoryId)
         params.append('pageNo', this.currentPageNum)
-        url = 'http://10.161.10.144:8080/blog/category/'
+        url = '/api/blog/category/'
       } else if (this.tagId) {
         params.append('tagId', this.tagId)
         params.append('pageNo', this.currentPageNum)
-        url = 'http://10.161.10.144:8080/blog/category/'
+        url = '/api/blog/category/'
       }
 
       this.$ajax.post(url, params)

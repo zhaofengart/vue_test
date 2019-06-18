@@ -20,7 +20,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('http://10.161.10.144:8080/blog/category/getAllCategory').then((data) => {
+    this.$http.post('/api/blog/category/getAllCategory').then((data) => {
       if (data.body.code === 0) {
         this.categoryList = data.body.data
         console.log(data.body.data)

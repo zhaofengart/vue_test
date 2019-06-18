@@ -62,11 +62,11 @@ export default {
     BlogIndexHeader
   },
   created () {
-    this.$http.post('http://10.161.10.144:8080/blog/category/getAllCategory').then((data) => {
+    this.$http.post('/api/blog/category/getAllCategory').then((data) => {
       this.categoryList = data.body.data
     })
 
-    this.$http.post('http://10.161.10.144:8080/blog/tag/getAllTag').then((data) => {
+    this.$http.post('/api/blog/tag/getAllTag').then((data) => {
       this.tagList = data.body.data
     })
 
@@ -91,7 +91,7 @@ export default {
       let imageData = new FormData()
       imageData.append('myFile', files[0])
       $.ajax({
-        url: 'http://localhost:8080/blog/uploadMutilPartFile', // 图片上传url
+        url: '/api/blog/uploadMutilPartFile', // 图片上传url
         type: 'POST',
         data: imageData,
         cache: false,
@@ -116,7 +116,7 @@ export default {
       console.log(this.selectedCategoryId)
       console.log(this.selectedTagIdList)
 
-      this.$http.post('http://10.161.10.144:8080/blog/publishArticle', {
+      this.$http.post('/api/blog/publishArticle', {
         categoryId: this.selectedCategoryId,
         title: this.title,
         content: $('#summernote').summernote('code'),

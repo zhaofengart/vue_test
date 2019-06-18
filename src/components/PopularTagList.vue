@@ -13,7 +13,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('http://10.161.10.144:8080/blog/tag/getPopularTag').then((data) => {
+    this.$http.post('/api/blog/tag/getPopularTag').then((data) => {
       if (data.body.code === 0) {
         this.tagList = data.body.data
         console.log(data.body.data)
