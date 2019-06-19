@@ -68,13 +68,11 @@ export default {
 }
 </script>
 
-<style type="text/css" media="screen">
+<style type="text/css" scoped>
 .container {
   width: 100%;
-  margin: 0 auto;
 }
 .contentMain {
-  float: left;
 }
 .userMessage {
 }
@@ -83,7 +81,7 @@ p {
   text-align: left;
 }
 .first {
-  width: 650px;
+  width: 700px;
   margin: 0 30px;
   float: left;
 }

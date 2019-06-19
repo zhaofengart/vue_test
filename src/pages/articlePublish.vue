@@ -91,7 +91,7 @@ export default {
       let imageData = new FormData()
       imageData.append('myFile', files[0])
       $.ajax({
-        url: '/api/blog/uploadMutilPartFile', // 图片上传url
+        url: '/api/blog/uploadMultiPartFile', // 图片上传url
         type: 'POST',
         data: imageData,
         cache: false,

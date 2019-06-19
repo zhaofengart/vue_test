@@ -3,19 +3,23 @@
     <div class="entry_article" v-for="item in articleList" :key="item.articleId">
       <div class="entry_pic">
         <router-link :to="{path: '/articleDetail', query: {articleId: item.articleId}}">
-        <img :src="item.imgPath"/>
+        <img :src="item.imgPath" style="width: 200px; height: 100px;"/>
         </router-link>
       </div>
       <div class="entry_txt">
         <router-link :to="{path: '/articleDetail', query: {articleId: item.articleId}}">
-          <h2 class="title">{{item.title}}</h2>
+          <h2 class="hd">{{item.title}}</h2>
         </router-link>
 
-        <div class="content" v-html="item.summary"></div>
+        <div class="bd" v-html="item.summary"></div>
+        <div class="ft">
           <Icon type="ios-contact"/>{{item.realname}} {{item.issueTime}}
-          <Icon type="ios-pricetag" />
-          <router-link :to="{path: '/', query: {tagId: tag.tagId}}" v-for="tag in item.tagList" :key="tag.tagId" >
-            <label>{{tag.tagName}}</label>  </router-link>
+          <div class="tag">
+            <Icon type="ios-pricetag" />
+            <router-link :to="{path: '/', query: {tagId: tag.tagId}}" v-for="tag in item.tagList" :key="tag.tagId" >
+              <label >{{tag.tagName}}</label>  </router-link>
+          </div>
+        </div>
       </div>
     </div>
     <div>
@@ -133,24 +137,52 @@ export default {
 </script>
 
 <style scoped>
-  .title {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .content {
-    height: 100%;
-  }
   .entry_article {
     width: 100%;
-    float: left;
+    height: 167px;
+    padding: 20px;
+    margin-top: 10px;
+    border-bottom: 1px solid #EFEFEF;
   }
   .entry_pic {
     width: 200px;
     height: 120px;
-    margin: 0 20px;
+    float: left;
+    cursor: pointer;
   }
   .entry_txt {
+    width: 400px;
+    height: 120px;
     margin: 0 20px;
+    float: left;
   }
+  .hd {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 28px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .bd {
+    font-size: 14px;
+    margin: 10px 0 5px 0;
+    height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .ft {
+    color: #999;
+    height: 20px;
+  }
+  .tag {
+    float: right;
+    margin-left: 5px;
+  }
+
 </style>
