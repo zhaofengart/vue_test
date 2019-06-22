@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="add_tag">
     <Input v-model="tagName"  placeholder="标签名称" style="width: auto" />
     <Button type="success" :disabled="!tagName" v-on:click="addTag">添加标签</Button>
   </div>
@@ -41,5 +41,8 @@ export default {
 </script>
 
 <style scoped>
-
+.add_tag {
+  width: 250px;
+  margin: 60px auto;
+}
 </style>

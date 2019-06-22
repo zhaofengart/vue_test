@@ -70,7 +70,7 @@ export default {
 
 <style type="text/css" scoped>
 .container {
-  width: 100%;
+  width: 1500px;
 }
 .contentMain {
 }

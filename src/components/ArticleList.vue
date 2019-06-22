@@ -3,7 +3,7 @@
     <div class="entry_article" v-for="item in articleList" :key="item.articleId">
       <div class="entry_pic">
         <router-link :to="{path: '/articleDetail', query: {articleId: item.articleId}}">
-        <img :src="item.imgPath" style="width: 200px; height: 100px;"/>
+        <img :src="item.imgPath" style="    display: block; width: 100%; height: 100%;"/>
         </router-link>
       </div>
       <div class="entry_txt">
@@ -22,8 +22,8 @@
         </div>
       </div>
     </div>
-    <div>
-      <Page :total="totalNumOfArticle" :current="currentPageNum" @on-change="turnPage"/>
+    <div >
+      <Page :total="totalNumOfArticle" :current="currentPageNum" @on-change="turnPage" style="width: 100%; margin: auto"/>
     </div>
   </div>
 </template>
@@ -116,15 +116,17 @@ export default {
         url = '/api/blog/category/'
       }
 
-      this.$ajax.post(url, params)
-        .then((response) => {
-          this.articleList = response.data.data
-          console.log(this.currentPageNum)
-          console.log(this.articleList)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      this.$ajax({
+        method: 'post',
+        url: url,
+        params: params
+      }).then(response => {
+        this.articleList = response.data.data
+        console.log(this.currentPageNum)
+        console.log(this.articleList)
+      }).catch((err) => {
+        console.log(err)
+      })
     }
   },
   watch: {
@@ -151,10 +153,9 @@ export default {
     cursor: pointer;
   }
   .entry_txt {
-    width: 400px;
-    height: 120px;
-    margin: 0 20px;
     float: left;
+    width: calc(100% - 210px);
+    padding: 10px 0 10px 20px;
   }
   .hd {
     font-size: 18px;
