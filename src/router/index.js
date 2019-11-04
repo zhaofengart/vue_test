@@ -7,7 +7,7 @@ import Index from '../pages/index.vue'
 import ArticlePublish from '../pages/articlePublish'
 import LoginPage from '../pages/loginPage'
 import TagAddPage from '../pages/tagAddPage'
-import ArticleDeatil from '../pages/articleDetail'
+import ArticleDetail from '../pages/articleDetail'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -32,7 +32,7 @@ export default new Router({
     },
     {
       path: '/articleDetail',
-      component: ArticleDeatil
+      component: ArticleDetail
     }
   ]
 })
